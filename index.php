@@ -7,7 +7,7 @@ if(sqlTable == 'TBL_StudentData') {
 } else {
     return 'error: no table'
 }
-
+print_r($sqlCommand);
 try {
     $conn = new PDO("sqlsrv:server = tcp:matturns.database.windows.net,1433; Database = Matturns", "matturns_admin", "ap#rvBNFTi7KpZ");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
