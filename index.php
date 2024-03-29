@@ -8,28 +8,27 @@ if($sqlTable == 'TBL_StudentData') {
 } else {
     echo 'error: no table';
 }
-print_r($sqlCommand);
-// try {
-//     $conn = new PDO("sqlsrv:server = tcp:matturns.database.windows.net,1433; Database = Matturns", "matturns_admin", "ap#rvBNFTi7KpZ");
-//     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+try {
+    $conn = new PDO("sqlsrv:server = tcp:matturns.database.windows.net,1433; Database = Matturns", "matturns_admin", "ap#rvBNFTi7KpZ");
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-//     try {
-//         $stmt = $conn->prepare($sqlCommand);
-//         $stmt->execute();
+    try {
+        $stmt = $conn->prepare($sqlCommand);
+        $stmt->execute();
     
-//         $results = $stmt->fetchAll();
+        $results = $stmt->fetchAll();
     
-//         print_r($results);
-//     }
-//     catch (PDOException $e) {
-//         print("Error querying the database.");
-//         die(print_r($e));
-//     }
+        print_r($results);
+    }
+    catch (PDOException $e) {
+        print("Error querying the database.");
+        die(print_r($e));
+    }
     
-//     $conn = null;
-// }
-// catch (PDOException $e) {
-//     print("Error connecting to SQL Server.");
-//     die(print_r($e));
-// }
+    $conn = null;
+}
+catch (PDOException $e) {
+    print("Error connecting to SQL Server.");
+    die(print_r($e));
+}
 ?>
