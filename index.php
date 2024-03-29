@@ -2,6 +2,7 @@
 print_r('im confused');
 
 $sqlTable = $_GET['table'];
+$sqlCommand;
 if(sqlTable == 'TBL_StudentData') {
     $sqlCommand = "INSERT INTO $sqlTable (UID, Strand, Section) VALUES ($_GET['uid'], $_GET['strand'], $_GET['section'])";
 } 
