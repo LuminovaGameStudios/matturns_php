@@ -25,4 +25,12 @@
 // }
 
 print_r($_GET['name']);
+
+if($_GET['name'] == 'joel') {
+    print_r('is joel');
+} elseif ($_GET['name'] == 'test') {
+    print_r('this is test');
+} else {
+    print_r($_GET['name']);
+}
 ?>
