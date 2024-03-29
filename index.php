@@ -9,10 +9,10 @@ if($sqlTable == 'TBL_StudentData') {
     echo 'error: no table';
 }
 
-echo $sqlTable . " " . var_dump($sqlTable) . "<br>";
-echo $_GET['uid'] . " " . var_dump($_GET['uid']) . "<br>";
-echo $_GET['strand'] . " " . var_dump($_GET['strand']) . "<br>";
-echo $_GET['section'] . " " . var_dump($_GET['section']) . "<br>";
+echo var_dump($sqlTable) . "<br>";
+echo var_dump($_GET['uid']) . "<br>";
+echo var_dump($_GET['strand']) . "<br>";
+echo var_dump($_GET['section']) . "<br>";
 
 // try {
 //     $conn = new PDO("sqlsrv:server = tcp:matturns.database.windows.net,1433; Database = Matturns", "matturns_admin", "ap#rvBNFTi7KpZ");
