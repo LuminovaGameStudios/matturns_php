@@ -8,6 +8,7 @@ if($sqlTable == 'TBL_StudentData') {
 } else {
     echo 'error: no table';
 }
+
 try {
     $conn = new PDO("sqlsrv:server = tcp:matturns.database.windows.net,1433; Database = Matturns", "matturns_admin", "ap#rvBNFTi7KpZ");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -15,10 +16,6 @@ try {
     try {
         $stmt = $conn->prepare($sqlCommand);
         $stmt->execute();
-    
-        $results = $stmt->fetchAll();
-    
-        print_r($results);
     }
     catch (PDOException $e) {
         print("Error querying the database.");
