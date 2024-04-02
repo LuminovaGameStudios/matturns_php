@@ -9,9 +9,9 @@ try {
             if($sqlTable == 'TBL_StudentData') { 
                 $sqlCommand = "INSERT INTO TBL_StudentData (UID, Strand, Section) VALUES (?, ?, ?);"; 
             } elseif($sqlTable == 'TBL_PretestAnswers') { 
-                $sqlCommand = "INSERT INTO TBL_PretestAnswers (UID, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"; 
+                $sqlCommand = "INSERT INTO TBL_PretestAnswers (UID, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, SCORE) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"; 
             } elseif($sqlTable == 'TBL_PosttestAnswers') {
-                $sqlCommand = "INSERT INTO TBL_PosttestAnswers (UID, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"; 
+                $sqlCommand = "INSERT INTO TBL_PosttestAnswers (UID, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, SCORE) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"; 
             }
             $stmt = $conn->prepare($sqlCommand);
             $uid = $_GET['uid']; 
@@ -31,7 +31,8 @@ try {
                 $q7 = $_GET['q7']; 
                 $q8 = $_GET['q8']; 
                 $q9 = $_GET['q9']; 
-                $q10 = $_GET['q10']; 
+                $q10 = $_GET['q10'];
+                $score = $_GET['score'];
                 $stmt->bindValue(2, $q1); 
                 $stmt->bindValue(3, $q2); 
                 $stmt->bindValue(4, $q3); 
@@ -42,6 +43,7 @@ try {
                 $stmt->bindValue(9, $q8); 
                 $stmt->bindValue(10, $q9); 
                 $stmt->bindValue(11, $q10); 
+                $stmt->bindValue(12, $score);
             } 
             $stmt->execute();
         } elseif($d == 't') {
